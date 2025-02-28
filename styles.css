@@ -1,0 +1,929 @@
+/* ==========================================================================
+   TABLE OF CONTENTS:
+   1. Base Styles & Typography
+   2. Brand Styling Classes
+   3. Navigation & Header
+   4. Banner & Carousel
+   5. Card & Container Components
+   6. Animations & Effects
+   7. Background Patterns
+   8. Social Media & Icons
+   9. Mobile Navigation
+   10. Responsive Design
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Base Styles & Typography
+   ========================================================================== */
+   body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1E1A14;
+    color: #E8E6E1;
+  }
+  
+h1, h2, h3, .brand-heading {
+    font-family: 'STIX Two Text', serif;
+    letter-spacing: 0.025em;
+}
+  
+.font-stix {
+    font-family: 'STIX Two Text', serif;
+}
+
+/* ==========================================================================
+   2. Brand Styling Classes
+   ========================================================================== */
+.brand-name {
+    font-family: 'STIX Two Text', serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+  
+.brand-tagline {
+    font-family: 'STIX Two Text', serif;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+}
+  
+.product-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+  
+.gold-accent {
+    color: hsl(45, 80%, 60%);
+}
+  
+.gold-border {
+    border-color: hsla(45, 80%, 60%, 0.3);
+}
+
+ /* Modern Luxury Styles */
+ .glass-card {
+  background: rgba(46, 33, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-gold {
+  background-color: transparent;
+  color: hsl(36, 30%, 95%);
+  border: 1px solid hsla(36, 30%, 40%, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+    
+.btn-gold:hover {
+  border-color: hsla(45, 80%, 60%, 0.5);
+  box-shadow: 0 0 15px rgba(210, 175, 100, 0.3);
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: hsla(36, 30%, 40%, 0.2);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.btn-gold:hover::after {
+  height: 100%;
+}
+
+.text-tea-text-secondary {
+  color: #CFC9C0;
+}
+
+.auto-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.auto-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, transparent, hsla(45, 80%, 60%, 0.8), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.8s ease;
+}
+.heading-active .auto-underline::after {
+  transform: scaleX(1);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+.delay-8 { transition-delay: 0.8s; }
+
+/* Animations */
+@keyframes gold-shimmer {
+  to { background-position: 200% center; }
+}
+
+.radial-gradient-bg {
+  background-image: radial-gradient(
+    circle at center,
+    #6e4e35 0%,
+    #593e2d 20%,
+    #533827 40%,
+    #462f21 60%,    
+    #3e281b 80%,    
+    #2e2116 100%
+  );
+  position: relative;
+}
+
+.radial-gradient-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(164, 137, 87, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Image hover effect */
+.image-container {
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.02);
+}
+
+/* Scroll reveal effects */
+.reveal-container > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Certificate floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.certificate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Logo rotation animation */
+@keyframes gentle-rotate {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.logo-animate:hover {
+  animation: gentle-rotate 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   3. Navigation & Header
+   ========================================================================== */
+/* Header styles */
+#header {
+    position: absolute;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+}
+
+#header.fixed {
+    position: fixed;
+    background-color: hsl(18, 38%, 17%, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+#header.scrolled {
+    position: fixed;
+    background-color: rgba(46, 33, 22, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation hover effects */
+.nav-item {
+    position: relative;
+}
+  
+.nav-underline {
+    transition: opacity 0.3s;
+}
+  
+.nav-item:hover .nav-underline {
+    opacity: 1;
+}
+
+/* Navigation button hover effects */
+#prevButton, #nextButton {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+#prevButton:hover, #nextButton:hover {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   4. Banner & Carousel
+   ========================================================================== */
+/* Banner sizing */
+#bannerCarousel, #bannerSkeleton {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Banner image animations */
+.banner-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease, transform 8s ease;
+    transform: scale(1.1);
+}
+
+.banner-image.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Banner text animations */
+.banner-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.banner-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Core Slider Styles */
+.images-slider {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+}
+
+.slider-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+.slider-image.active {
+    opacity: 1;
+    animation: zoomEffect 5s linear forwards;
+}
+
+.slider-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 20;
+}
+
+.slider-content {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(-80px);
+}
+
+.slider-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+/* Loading indicator */
+.loading-indicator {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(17, 24, 39, 0.8);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 16rem;
+    height: 0.5rem;
+    background-color: rgba(55, 65, 81, 1);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: rgba(16, 185, 129, 1);
+    transition: width 0.3s ease-out;
+}
+
+/* Banner container */
+.banner-container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navigation Controls */
+.nav-control {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.banner-container:hover .nav-control {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   5. Card & Container Components
+   ========================================================================== */
+.tea-card {
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(to bottom right, hsl(25, 25%, 20%), hsla(25, 25%, 20%, 0.9));
+}
+  
+.tea-card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid hsla(36, 30%, 40%, 0.1);
+}
+  
+.tea-ingredients-list {
+    margin-top: 1rem;
+}
+  
+.tea-ingredients-list-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: hsl(45, 30%, 70%);
+}
+  
+.tea-ingredients-list-item::before {
+    content: "•";
+    margin-right: 0.5rem;
+    color: hsl(45, 40%, 40%);
+}
+
+/* Glass card effect */
+.glass-card {
+    background: rgba(46, 33, 22, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding-top: 5%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Image zoom effect */
+.image-zoom-container {
+    overflow: hidden;
+    transform: scale(1.25);
+}
+  
+.image-zoom-container img {
+    transition: transform 0.8s ease;
+}
+  
+.image-zoom-container:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   6. Animations & Effects
+   ========================================================================== */
+@keyframes gentle-shine {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+  
+.gold-shine-text {
+    background: linear-gradient(
+        90deg,
+        hsl(36, 40%, 40%) 0%,
+        hsl(45, 90%, 60%) 25%,
+        hsl(36, 40%, 40%) 50%,
+        hsl(45, 90%, 60%) 75%,
+        hsl(36, 40%, 40%) 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gold-shimmer 6s linear infinite;
+}
+  
+.gold-shine-svg {
+    filter: brightness(0.9) contrast(1.2) saturate(1.1);
+    animation: gentle-gold-shine 4s ease-in-out infinite;
+}
+
+@keyframes zoomEffect {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+  
+@keyframes gentle-gold-shine {
+    0% {
+        filter: brightness(0.85) contrast(1.2) saturate(1.1);
+    }
+    50% {
+        filter: brightness(0.95) contrast(1.3) saturate(1.2);
+    }
+    100% {
+        filter: brightness(0.85) contrast(1.2) saturate(1.1);
+    }
+}
+  
+@keyframes gold-shimmer {
+    to { background-position: 200% center; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add to your existing animations section */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add more delay classes */
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+.delay-8 { transition-delay: 0.8s; }
+
+/* Philosophy card hover effect */
+.hover\:-translate-y-1:hover {
+    transform: translateY(-4px);
+}
+
+/* Add these animation styles */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 4)); /* Adjust based on card width */
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.scroller {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Adjust based on your header height */
+}
+
+/* Section Spacing */
+section[id] {
+    scroll-margin-top: 100px; /* Adjust based on your header height */
+}
+
+/* Section IDs */
+#background-section,
+#our-story-section,
+#product-preview,
+#contact-us {
+    position: relative;
+}
+
+/* ==========================================================================
+   7. Background Patterns
+   ========================================================================== */
+.tea-pattern-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.radial-gradient-bg {
+    background-image: radial-gradient(
+        circle at center,
+        #6e4e35 0%,
+        #593e2d 20%,
+        #533827 40%,
+        #462f21 60%,    
+        #3e281b 80%,    
+        #2e2116 100%
+    );
+    position: relative;
+}
+  
+.radial-gradient-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(164, 137, 87, 0.15) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   8. Social Media & Icons
+   ========================================================================== */
+.social-icon {
+    transition: transform 0.3s ease;
+}
+  
+.social-icon:hover {
+    transform: scale(1.1);
+}
+  
+.social-icon i {
+    font-size: 24px;
+}
+
+/* Social Icons Animations */
+.social-icons a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-icons a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover::before {
+    opacity: 0.1;
+    transform: scale(1);
+}
+
+.social-icons a i {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   9. Mobile Navigation
+   ========================================================================== */
+#mobile-nav {
+    transition: opacity 0.3s ease, visibility 0.3s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+  
+#mobile-nav.active {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+#mobile-nav.pointer-events-auto {
+    pointer-events: auto;
+}
+
+.nav-link {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Prevent scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+body.overflow-hidden {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Animation classes */
+.slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Fade animations */
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ensure proper z-index stacking */
+#mobile-menu-button {
+    z-index: 1001;
+}
+
+/* ==========================================================================
+   10. Responsive Design
+   ========================================================================== */
+/* Mobile aspect ratio handling */
+@media (max-width: 768px) {
+    .image-container {
+        aspect-ratio: 4/3;
+        height: auto !important;
+        max-height: 100%;
+        width: 100%;
+    }
+
+    #bannerCarousel, #bannerSkeleton {
+        height: calc(100vh - 3.5rem); /* Adjust for mobile header height */
+    }
+    
+  
+
+    .tea-card-header {
+        padding: 1rem;
+    }
+  
+    .certification-badge {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    #header.scrolled {
+        height: 3.5rem;
+    }
+
+    .banner-text p {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .nav-control {
+        opacity: 1;
+        padding: 1rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+    }
+    
+   
+
+    body {
+        padding-top: 4rem; /* Adjust based on mobile header height */
+    }
+}
+
+/* Ensure the main content sections align properly */
+#about-section {
+    margin-top: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+}
+
+/* About section styles */
+.glass-card {
+    background: rgba(46, 33, 22, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+.heading-trigger .auto-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        hsla(45, 80%, 60%, 0.8), 
+        transparent
+    );
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.8s ease;
+}
+
+.heading-active .auto-underline::after {
+    transform: scaleX(1);
+}
+
+/* Mobile Header Styles */
+.fixed {
+    position: fixed;
+    transition: all 0.3s ease;
+}
+
+/* Add shadow when scrolling */
+.mobile-header-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ใน styles.css */
+@media (max-width: 768px) {
+  .mobile-header {
+      height: 4rem; /* ปรับความสูง header ให้คงที่ */
+      transition: height 0.3s ease;
+  }
+  
+  /* ปรับ padding เนื้อหาด้านบนให้สอดคล้องกับความสูง header */
+  .content-wrapper {
+      padding-top: 4rem;
+  }
+}
+
+/* ใน styles.css */
+@media (max-width: 768px) {
+  #bannerCarousel, 
+  #bannerSkeleton {
+      height: 50vh; /* ลดความสูงลงครึ่งหนึ่งสำหรับมือถือ */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #bannerCarousel,
+  #bannerSkeleton {
+      height: 70vh; /* ขนาดกลางสำหรับแท็บเล็ต */
+  }
+}
+
+@media (min-width: 1025px) {
+  #bannerCarousel,
+  #bannerSkeleton {
+      height: 100vh; /* เต็มจอสำหรับเดสก์ท็อป */
+  }
+}
+
+#mobile-nav {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#mobile-nav.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-close {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#mobile-nav.active .mobile-menu-close {
+  opacity: 1;
+}
