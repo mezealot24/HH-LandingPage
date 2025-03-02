@@ -15,45 +15,172 @@
 /* ==========================================================================
    1. Base Styles & Typography
    ========================================================================== */
+
+    
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    }
+
    body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'BookmanOldStyle', serif;
     background-color: #1E1A14;
-    color: #E8E6E1;
+    color: #f1d180;  }
+
+  
+  /* Apply BookmanOldStyle to headings */
+  h1, h2, h3, .brand-heading {
+    font-family: 'BookmanOldStyle', serif;
+    letter-spacing: 0.025em;
+    color: #f1d180;
+  } 
+    /* Apply font to paragraphs */
+p {
+    font-family: 'Sukhumvit Set', sans-serif;
+    font-weight: 400; /* Default to the regular text weight */
+    color:  #f3d281;
+   
+  }
+ 
+/* Font declarations */
+@font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('SukhumvitSet-Light-02.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
   }
   
-h1, h2, h3, .brand-heading {
-    font-family: 'STIX Two Text', serif;
-    letter-spacing: 0.025em;
-}
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('SukhumvitSet-Text-03.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
   
-.font-stix {
-    font-family: 'STIX Two Text', serif;
-}
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('SukhumvitSet-Medium-04.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('SukhumvitSet-SemiBold-05.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('SukhumvitSet-Bold-06.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Sukhumvit Set';
+    src: url('SukhumvitSet-Thin-01.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+
+  /* Font declarations for BookmanOldStyle */
+@font-face {
+    font-family: 'BookmanOldStyle';
+    src: url('BookmanOldStyle-01.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BookmanOldStyle';
+    src: url('BookmanOldStyle-Bold-02.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BookmanOldStyle';
+    src: url('BookmanOldStyle-BoldItalic-04.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'BookmanOldStyle';
+    src: url('BookmanOldStyle-Italic-03.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  
+  /* You might want to add these utility classes for using the font with different styles */
+  .font-bookmanoldstyle {
+    font-family: 'BookmanOldStyle', serif;
+  }
+  
+  .font-bookmanoldstyle-bold {
+    font-family: 'BookmanOldStyle', serif;
+    font-weight: 700;
+  }
+  
+  .font-bookmanoldstyle-italic {
+    font-family: 'BookmanOldStyle', serif;
+    font-style: italic;
+  }
+  
+  .font-bookmanoldstyle-bolditalic {
+    font-family: 'BookmanOldStyle', serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+.font-sukhumvit {
+    font-family: 'Sukhumvit Set', sans-serif;
+  }
 
 /* ==========================================================================
    2. Brand Styling Classes
    ========================================================================== */
-.brand-name {
-    font-family: 'STIX Two Text', serif;
+
+  .brand-name {
+    font-family: 'BookmanOldStyle', serif;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-}
+  }
   
-.brand-tagline {
-    font-family: 'STIX Two Text', serif;
+  .brand-tagline {
+    font-family: 'BookmanOldStyle', serif;
     font-weight: 400;
     letter-spacing: 0.025em;
-}
+  }
   
-.product-name {
-    font-family: 'Inter', sans-serif;
+  .product-name {
+    font-family: 'BookmanOldStyle', serif;
     font-weight: 700;
     letter-spacing: -0.025em;
-}
+  }
+
+  .product-card {
+    @apply relative flex flex-col items-center text-center md:text-left md:items-start md:flex-row overflow-hidden;
+    background: linear-gradient(to bottom, var(--bg-top, #6d4c34) 50%, var(--bg-bottom, #553125) 50%);
+  }
   
+
 .gold-accent {
     color: hsl(45, 80%, 60%);
+}
+
+.gold-gradient {
+    background: linear-gradient(90deg, #e6c068 0%, #dba628 50%, #bb8c24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
   
 .gold-border {
@@ -67,37 +194,6 @@ h1, h2, h3, .brand-heading {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-}
-
-.btn-gold {
-  background-color: transparent;
-  color: hsl(36, 30%, 95%);
-  border: 1px solid hsla(36, 30%, 40%, 0.3);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-    
-.btn-gold:hover {
-  border-color: hsla(45, 80%, 60%, 0.5);
-  box-shadow: 0 0 15px rgba(210, 175, 100, 0.3);
-}
-
-.btn-gold::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background: hsla(36, 30%, 40%, 0.2);
-  transition: all 0.3s ease;
-  z-index: -1;
-}
-
-.btn-gold:hover::after {
-  height: 100%;
 }
 
 .text-tea-text-secondary {
@@ -123,17 +219,6 @@ h1, h2, h3, .brand-heading {
 }
 .heading-active .auto-underline::after {
   transform: scaleX(1);
-}
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .delay-1 { transition-delay: 0.1s; }
@@ -175,13 +260,10 @@ h1, h2, h3, .brand-heading {
   pointer-events: none;
 }
 
-/* Image hover effect */
-.image-container {
-  transition: transform 0.5s ease;
-}
-
-.image-container:hover {
-  transform: scale(1.02);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 /* Scroll reveal effects */
@@ -190,28 +272,32 @@ h1, h2, h3, .brand-heading {
   transform: translateY(20px);
 }
 
-/* Certificate floating animation */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
+/* Certificate fadein and fadeout animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .certificate-badge {
+    animation: fadeIn 0.6s ease-out;
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+  }  
 
-.certificate-float {
-  animation: float 6s ease-in-out infinite;
-}
+  /* Logo rotation animation */
+  @keyframes gentle-rotate {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
 
-/* Logo rotation animation */
-@keyframes gentle-rotate {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  75% { transform: rotate(-2deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.logo-animate:hover {
-  animation: gentle-rotate 3s ease-in-out infinite;
-}
 
 /* ==========================================================================
    3. Navigation & Header
@@ -401,34 +487,127 @@ h1, h2, h3, .brand-heading {
 /* ==========================================================================
    5. Card & Container Components
    ========================================================================== */
-.tea-card {
+   .tea-gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .gallery-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Bookman Old Style', serif;
+    color: #8B4513;
+  }
+  
+  .tea-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .tea-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
     overflow: hidden;
-    border: none;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(to bottom right, hsl(25, 25%, 20%), hsla(25, 25%, 20%, 0.9));
-}
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
   
-.tea-card-header {
+  .tea-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .tea-image-container {
+    position: relative;
+    height: 220px;
+  }
+  
+  .tea-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .tea-badge {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    background-color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .tea-content {
     padding: 1.5rem;
-    border-bottom: 1px solid hsla(36, 30%, 40%, 0.1);
-}
+  }
   
-.tea-ingredients-list {
+  .tea-category {
+    display: block;
+    color: #CFC9C0;
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tea-content h3 {
+    font-family: 'Bookman Old Style', serif;
+    font-size: 1.75rem;
+    margin: 0.5rem 0;
+    color: var(--accent-color);
+  }
+  
+  .tea-subtitle {
+    color: #8B4513;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tea-benefits, .tea-ingredients {
+    margin-bottom: 1rem;
+  }
+  
+  .tea-benefits span, .tea-ingredients span {
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .tea-ingredients ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tea-ingredients li {
+    font-size: 0.85rem;
+    color: #6D6D6D;
+    padding: 0.15rem 0;
+  }
+  
+  .explore-button {
+    background: linear-gradient(to right, #D4AF37, #FBF5B7, #D4AF37);
+    color: #4A2511;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
     margin-top: 1rem;
-}
+    transition: all 0.3s ease;
+  }
   
-.tea-ingredients-list-item {
-    display: flex;
-    align-items: center;
-    font-size: 0.875rem;
-    color: hsl(45, 30%, 70%);
-}
-  
-.tea-ingredients-list-item::before {
-    content: "•";
-    margin-right: 0.5rem;
-    color: hsl(45, 40%, 40%);
-}
+  .explore-button:hover {
+    background: linear-gradient(to right, #BF9B30, #FBF5B7, #BF9B30);
+    transform: translateY(-2px);
+  }
 
 /* Glass card effect */
 .glass-card {
@@ -453,6 +632,44 @@ h1, h2, h3, .brand-heading {
 .image-zoom-container:hover img {
     transform: scale(1.05);
 }
+
+.parallax-bg {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Product Cards - Mobile */
+.product-card-mobile {
+    @apply bg-secondary/20 rounded-lg overflow-hidden mb-4;
+    width: 100%;
+}
+
+.product-card-mobile img {
+    @apply w-full aspect-square object-cover;
+}
+
+.product-card-mobile .content {
+    @apply p-3;
+}
+
+/* Product Cards - Desktop */
+.product-card {
+    @apply transition-all duration-300;
+}
+
+.product-card:hover {
+    @apply transform shadow-lg -translate-y-1;
+}
+
+/* Ensure proper spacing in grid layouts */
+#productGrid {
+    @apply gap-6 md:gap-8;
+}
+
+
 
 /* ==========================================================================
    6. Animations & Effects
@@ -525,22 +742,8 @@ h1, h2, h3, .brand-heading {
 }
 
 /* Add to your existing animations section */
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* Add more delay classes */
-.delay-5 { transition-delay: 0.5s; }
-.delay-6 { transition-delay: 0.6s; }
-.delay-7 { transition-delay: 0.7s; }
-.delay-8 { transition-delay: 0.8s; }
 
 /* Philosophy card hover effect */
 .hover\:-translate-y-1:hover {
@@ -590,11 +793,39 @@ section[id] {
 }
 
 /* Section IDs */
-#background-section,
+#about-section,
 #our-story-section,
 #product-preview,
+
 #contact-us {
     position: relative;
+}
+
+/* Contact Us Section */
+#contact-us {
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    #contact-us {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-enter {
+    animation: slideUp 0.3s ease-out;
 }
 
 /* ==========================================================================
@@ -800,7 +1031,10 @@ body.overflow-hidden {
     }
 
     .glass-card {
-        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
     
    
@@ -813,9 +1047,10 @@ body.overflow-hidden {
 /* Ensure the main content sections align properly */
 #about-section {
     margin-top: 0;
-    padding-top: 4rem;
+    padding-top: 0;
     padding-bottom: 4rem;
     position: relative;
+    overflow: hidden;
 }
 
 /* About section styles */
@@ -827,21 +1062,22 @@ body.overflow-hidden {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.animate-float {
+    animation: float 6s ease-in-out infinite;
 }
 
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
+.circle-decoration {
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(70px);
+}
 
 .heading-trigger .auto-underline::after {
     content: '';
@@ -910,20 +1146,290 @@ body.overflow-hidden {
   }
 }
 
-#mobile-nav {
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
+/* Prevent horizontal overflow */
+
+/* Ensure all elements have proper width settings */
+
+/* Ensure images and other elements do not exceed viewport width */
+
+/* Adjust padding and margins for mobile devices */
+@media (max-width: 768px) {
+    .px-4, .md\:px-8, .lg\:px-12 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .w-full {
+        width: 100%;
+    }
+    .h-full {
+        height: 100%;
+    }
 }
 
-#mobile-nav.active {
-  transform: translateX(0);
+/* Mobile Navbar - Show only on mobile */
+@media (max-width: 768px) {
+    .mobile-header {
+        height: 4rem; /* Adjust header height */
+        transition: height 0.3s ease;
+    }
+
+    .content-wrapper {
+        padding-top: 4rem; /* Adjust content padding */
+    }
+
+    #bannerCarousel, 
+    #bannerSkeleton {
+        height: 50vh; /* Adjust banner height */
+    }
+
+    #mobile-nav {
+        display: flex; /* Ensure mobile nav is displayed */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%); /* Initially hidden */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #mobile-nav.active {
+        transform: translateX(0); /* Show mobile nav when active */
+    }
+
+    .nav-link {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .pointer-events-auto {
+        pointer-events: auto;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
 }
 
-.mobile-menu-close {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/api/placeholder/1200/800') center/cover no-repeat;
 }
 
-#mobile-nav.active .mobile-menu-close {
-  opacity: 1;
+.hero-content {
+    text-align: center;
+    color: var(--soft-white);
+    padding: 0 1rem;
 }
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--warm-gold);
+    color: var(--soft-white);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: var(--deep-gold);
+}
+
+/* About Section */
+.about {
+    padding: 5rem 0;
+    background-color: var(--light-cream);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: var(--deep-gold);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background-color: var(--warm-gold);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.two-column {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.column {
+    flex: 1;
+}
+
+.image-container {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.03);
+}
+
+.text-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--deep-gold);
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--warm-gold);
+}
+
+/* Values Section */
+.values {
+    padding: 5rem 0;
+    background-color: var(--light-cream);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.value-card {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.value-title {
+    font-size: 1.3rem;
+    color: var(--deep-gold);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.royal-note {
+    background-color: var(--soft-white);
+    padding: 2.5rem;
+    margin-top: 4rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.royal-note h3 {
+    color: var(--deep-gold);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.royal-note p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Certificates */
+.certificates {
+    padding: 3rem 0;
+    background-color: var(--soft-white);
+    text-align: center;
+}
+
+.certificates-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.certificate {
+    width: 100px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.certificate:hover {
+    opacity: 1;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .two-column {
+        flex-direction: column;
+        gap: 2rem;
+    }  
+
+}
+
+
+

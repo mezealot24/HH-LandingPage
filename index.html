@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="font-stix">
+<html lang="en" class="font-bookmanoldstyletyle">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hundreds Heritage Tea - Premium Thai Tea Experience</title>
     <meta name="description"
         content="Discover the finest Thai tea traditions with our premium tea collections. Handcrafted and ethically sourced.">
@@ -14,8 +14,117 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Include Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Include Tabler Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        /* Base animation classes */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease forwards;
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideRight 1s ease forwards;
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideLeft 1s ease forwards;
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: scale 1s ease forwards;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Utility classes to control animation delay */
+        .animation-delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .animation-delay-500 {
+            animation-delay: 500ms;
+        }
+
+        .animation-delay-700 {
+            animation-delay: 700ms;
+        }
+
+        /* Hide elements before they're animated */
+        .reveal-on-scroll {
+            visibility: hidden;
+        }
+    </style>
     <!-- Configure Tailwind -->
     <script>
         tailwind.config = {
@@ -38,76 +147,18 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['STIX Two Text', 'serif'],
+                        serif: ['bookmanoldstyletyle', 'serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- Add STIX Two Text font -->
-    <style>
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-Regular.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-Italic.ttf') format('truetype');
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-Medium.ttf') format('truetype');
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-MediumItalic.ttf') format('truetype');
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-Bold.ttf') format('truetype');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-BoldItalic.ttf') format('truetype');
-            font-weight: 700;
-            font-style: italic;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-SemiBold.ttf') format('truetype');
-            font-weight: 600;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'STIX Two Text';
-            src: url('./fonts/STIXTwoText-SemiBoldItalic.ttf') format('truetype');
-            font-weight: 600;
-            font-style: italic;
-        }
-    </style>
 </head>
 
-<body class="antialiased min-h-screen flex flex-col overflow-x-hidden text-foreground bg-background">
+<body class="antialiased min-h-screen flex flex-col overflow-x-clip text-foreground bg-background">
 
     <!-- Header  -->
-    <div id="header" class="w-full z-50 transition-all duration-300">
+    <header id="header" class="w-full z-50 transition-all duration-300">
         <div class="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12">
             <!-- Desktop Navbar - Hide on mobile -->
             <div class="hidden md:block">
@@ -124,9 +175,8 @@
                     <div class="col-span-8">
                         <!-- Top Row - Motto -->
                         <div class="flex justify-center items-center h-16">
-                            <p id="motto"
-                                class="text-tea-text-secondary font-serif transition-all duration-300 text-xl">
-                                "THE WONDER OF SIAMES WISDOM TEA"
+                            <p id="motto" class="text-gold-shine font-serif transition-all duration-300 text-xl">
+                                "THE WONDER OF SIAMESE WISDOM TEA"
                             </p>
                         </div>
 
@@ -136,8 +186,8 @@
                                 <div class="h-full flex items-center w-full max-w-[800px]">
                                     <div class="flex flex-wrap gap-y-2 justify-center items-center w-full uppercase">
                                         <div class="relative px-4 py-1 nav-item">
-                                            <a href="#background-section"
-                                                class="text-tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
+                                            <a href="#about-section"
+                                                class="font-sukhumvit tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
                                                 Background
                                             </a>
                                             <div
@@ -146,7 +196,7 @@
                                         </div>
                                         <div class="relative px-4 py-1 nav-item">
                                             <a href="#our-story-section"
-                                                class="text-tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
+                                                class="font-sukhumvit tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
                                                 Our Story
                                             </a>
                                             <div
@@ -155,7 +205,7 @@
                                         </div>
                                         <div class="relative px-4 py-1 nav-item">
                                             <a href="#product-preview"
-                                                class="text-tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
+                                                class="font-sukhumvit tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
                                                 Our Collection
                                             </a>
                                             <div
@@ -164,7 +214,7 @@
                                         </div>
                                         <div class="relative px-4 py-1 nav-item">
                                             <a href="#contact-us"
-                                                class="text-tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
+                                                class="font-sukhumvit tea-text-secondary hover:text-primary transition-colors whitespace-nowrap">
                                                 Contact Us
                                             </a>
                                             <div
@@ -185,26 +235,26 @@
                                 <a href="https://www.instagram.com/hundredsheritage_th" target="_blank"
                                     rel="noopener noreferrer"
                                     class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                    <i class="ti ti-brand-instagram text-xl"></i>
+                                    <i class="ti ti-brand-instagram text-3xl"></i>
                                 </a>
 
                                 <!-- Facebook -->
                                 <a href="https://www.facebook.com/share/19QRjTRofu" target="_blank"
                                     rel="noopener noreferrer"
                                     class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                    <i class="ti ti-brand-facebook text-xl"></i>
+                                    <i class="ti ti-brand-facebook text-3xl"></i>
                                 </a>
 
                                 <!-- Line -->
                                 <a href="https://lin.ee/Rxte6r9" target="_blank" rel="noopener noreferrer"
                                     class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                    <i class="ti ti-brand-line text-xl"></i>
+                                    <i class="ti ti-brand-line text-3xl"></i>
                                 </a>
 
                                 <!-- TikTok -->
                                 <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
                                     class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                    <i class="ti ti-brand-tiktok text-xl"></i>
+                                    <i class="ti ti-brand-tiktok text-3xl"></i>
                                 </a>
                             </div>
                         </div>
@@ -212,9 +262,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
+    </header>
 
     <!-- Mobile Navbar - Show only on mobile -->
     <div
@@ -228,7 +276,7 @@
         <!-- Centered Mobile Logo -->
         <div class="absolute left-1/2 transform -translate-x-1/2 z-40">
             <a href="/">
-                <img src="/images/logo_HH.svg" alt="Hundreds Heritage" class="h-12 w-auto gold-shine-svg">
+                <img src="/images/logo_HH.svg" alt="Hundreds Heritage" class="h-12 w-auto">
             </a>
         </div>
 
@@ -252,14 +300,14 @@
                     Hundreds Heritage
                 </h1>
                 <p class="text-tea-text-secondary/80 mt-2 italic">
-                    "THE WONDER OF SIAMES WISDOM TEA"
+                    "THE WONDER OF SIAMESES WISDOM TEA"
                 </p>
             </div>
 
 
             <!-- Mobile Navigation Links -->
             <nav class="flex-1 flex flex-col items-center justify-center space-y-8">
-                <a href="#background-section"
+                <a href="#about-section-mobile"
                     class="nav-link text-2xl text-tea-text-secondary hover:text-primary transform translate-x-8 opacity-0 transition-all duration-300">
                     Background
                 </a>
@@ -296,880 +344,553 @@
                     <i class="ti ti-brand-tiktok text-2xl"></i>
                 </a>
             </div>
-
-            <!-- Social Icons -->
-            <div class="pb-12 flex justify-center space-x-6 opacity-0 transition-opacity duration-300 delay-500"
-                id="mobile-nav-social">
-                <a href="https://www.instagram.com/hundredsheritage_th" target="_blank" rel="noopener noreferrer"
-                    class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                    <i class="ti ti-brand-instagram text-2xl"></i>
-                </a>
-                <a href="https://www.facebook.com/share/19QRjTRofu" target="_blank" rel="noopener noreferrer"
-                    class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                    <i class="ti ti-brand-facebook text-2xl"></i>
-                </a>
-                <a href="https://lin.ee/Rxte6r9" target="_blank" rel="noopener noreferrer"
-                    class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                    <i class="ti ti-brand-line text-2xl"></i>
-                </a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
-                    class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                    <i class="ti ti-brand-tiktok text-2xl"></i>
-                </a>
-            </div>
         </div>
     </div>
-    </div>
-    </header>
 
-    <!-- Content (remove top padding/margin) -->
-    <div class="pt-16 md:pt-0">
+    <!-- Content -->
+    <div class="pt-0 md:pt-0">
         <div class="flex-grow w-full">
-            <main class="w-full">
-                <!-- Banner section (update classes) -->
-                <div class="w-full mx-auto">
-                    <!-- Banner Skeleton -->
-                    <div id="bannerSkeleton"
-                        class="relative h-screen bg-gradient-to-b from-gray-800 to-gray-900 animate-pulse flex flex-col justify-center items-center">
-                        <div class="h-16 w-3/4 md:h-20 md:w-2/3 bg-gray-700/50 rounded-lg mb-4"></div>
-                        <div class="h-16 w-2/3 md:h-20 md:w-1/2 bg-gray-700/50 rounded-lg mb-8"></div>
-                        <div class="h-10 w-40 bg-gray-700/50 rounded-full"></div>
-                    </div>
 
-                    <!-- Banner Carousel -->
-                    <div id="bannerCarousel" class="relative hidden h-screen">
-                        <div class="overflow-hidden h-full w-full relative flex items-center justify-center">
-                            <!-- Images Container -->
-                            <div id="imagesContainer" class="absolute inset-0 w-full h-full">
-                                <!-- Images will be added here by JavaScript -->
-                            </div>
+            <!-- Banner section  -->
+            <div class="w-full mx-auto">
+                <!-- Banner Skeleton -->
+                <div id="bannerSkeleton"
+                    class="relative h-screen bg-gradient-to-b from-gray-800 to-gray-900 animate-pulse flex flex-col justify-center items-center">
+                    <div class="h-16 w-3/4 md:h-20 md:w-2/3 bg-gray-700/50 rounded-lg mb-4"></div>
+                    <div class="h-16 w-2/3 md:h-20 md:w-1/2 bg-gray-700/50 rounded-lg mb-8"></div>
+                    <div class="h-10 w-40 bg-gray-700/50 rounded-full"></div>
+                </div>
 
-                            <!-- Overlay -->
-                            <div class="absolute inset-0 bg-black/60 z-10"></div>
-
-                            <!-- Content -->
-                            <div
-                                class="banner-text absolute inset-0 flex flex-col justify-center items-center px-4 z-20">
-                                <p
-                                    class="uppercase font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-                                    <span class="font-semibold uppercase">
-                                        Savor the Essence of<br> Siames Wisdom
-                                    </span>
-                                </p>
-                            </div>
+                <!-- Banner Carousel -->
+                <div id="bannerCarousel" class="relative hidden h-screen">
+                    <div class="overflow-hidden h-full w-full relative flex items-center justify-center">
+                        <!-- Images Container -->
+                        <div id="imagesContainer" class="absolute inset-0 w-full h-full">
+                            <!-- Images will be added here by JavaScript -->
                         </div>
-                    </div>
-                </div>
 
-                <!-- About Section Placeholder -->
-                <div id="about-section" class="w-full bg-background">
-                    <div class="max-w-6xl mx-auto px-4 md:px-8">
-                        <section class="relative w-full min-h-screen py-8 md:py-16 overflow-hidden">
-                            <!-- Decorative elements -->
-                            <div
-                                class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-10">
-                                <div
-                                    class="absolute top-20 left-10 w-64 h-64 bg-yellow-400 rounded-full filter blur-3xl">
-                                </div>
-                                <div
-                                    class="absolute bottom-20 right-10 w-96 h-96 bg-yellow-600 rounded-full filter blur-3xl">
-                                </div>
-                            </div>
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-black/60 z-10"></div>
 
-                            <!-- Content Container -->
-                            <div class="relative z-10 px-4 py-12 glass-card rounded-lg max-w-6xl mx-auto">
-                                <!-- Certificates Container -->
-                                <div class="certificate-float mb-16 transform transition-all duration-1000 ease-out">
-                                    <!-- Desktop version - visible on md screens and up -->
-                                    <div class="hidden md:flex justify-center items-center">
-                                        <div class="relative w-full max-w-4xl h-40 lg:h-52 image-container">
-                                            <img src="/images/certificates.png" alt="Organic and Non-GMO Certificates"
-                                                class="object-contain w-full h-full" />
-                                        </div>
-                                    </div>
-
-                                    <!-- Mobile version -->
-                                    <div class="flex md:hidden justify-center items-center mb-4">
-                                        <div class="relative w-full h-full max-w-3xl">
-                                            <img src="/images/certificates.png" alt="Organic and Non-GMO Certificates"
-                                                class="object-contain w-full h-[10rem]" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Background Section -->
-                                <div class="fade-up mb-10 md:mb-16 reveal-container">
-                                    <div class="container px-4 max-w-3xl mx-auto space-y-4 md:space-y-6">
-                                        <h2
-                                            class="text-2xl sm:text-3xl md:text-4xl font-playfair text-start mb-4 md:mb-8 heading-trigger">
-                                            <span class="auto-underline font-semibold gold-shine-text">
-                                                Background
-                                            </span>
-                                        </h2>
-
-                                        <p
-                                            class="text-sm sm:text-base md:text-lg text-tea-text-secondary text-justify fade-up">
-                                            Hundreds Heritage is inspired by a passion to share Thailand's
-                                            rich cultural heritage of tea drinking—a tradition deeply rooted
-                                            in centuries of wisdom and natural abundance. For hundreds of
-                                            years, tea has been an integral part of Thai culture, with ancient
-                                            tea trees still thriving in the misty highlands of the north.
-                                        </p>
-
-                                        <div id="extra-content" class="hidden space-y-4 md:space-y-6">
-                                            <p
-                                                class="text-sm sm:text-base md:text-lg text-tea-text-secondary text-justify fade-up delay-2">
-                                                One of Thailand's most significant milestones in tea
-                                                cultivation dates back to the reign of His Majesty King
-                                                Bhumibol Adulyadej (Rama IX). Recognizing the potential of tea
-                                                as a sustainable livelihood, His Majesty introduced the first
-                                                tea plants to highland communities, encouraging them to
-                                                cultivate tea as an alternative to opium farming and
-                                                slash-and-burn agriculture. This royal initiative transformed
-                                                lives, providing generations of farmers with a stable income
-                                                while preserving the delicate balance of nature. Even today,
-                                                many of these tea farms continue to honor sustainability by
-                                                relying on clean hydropower energy, ensuring that the art of
-                                                tea-making remains in harmony with the environment.
-                                            </p>
-
-                                            <p
-                                                class="text-sm sm:text-base md:text-lg text-tea-text-secondary text-justify fade-up delay-3">
-                                                Hundreds Heritage holds deep gratitude for this royal
-                                                benevolence and is devoted to uplifting highland communities
-                                                and organic farmers. With a profound respect for Thailand's
-                                                rich traditions, we strive to preserve and showcase the
-                                                nation's distinctive cultural heritage and precious natural
-                                                ingredients. Our mission is to share their remarkable essence
-                                                with the world, ensuring their timeless value is recognized
-                                                and celebrated across generations.
-                                            </p>
-
-                                            <div
-                                                class="max-w-3xl mx-auto relative pt-4 grid grid-cols-1 sm:grid-cols-4 gap-4 fade-up delay-4">
-                                                <div class="sm:col-span-1">
-                                                    <img src="/images/logo_HH.svg" alt="Hundreds Heritage Logo"
-                                                        class="w-32 sm:w-48 opacity-80 mx-auto sm:mx-0 logo-animate" />
-                                                </div>
-                                                <div class="sm:col-span-3 space-y-4">
-                                                    <p
-                                                        class="text-sm sm:text-base md:text-lg text-tea-text-secondary text-justify">
-                                                        Hundreds Heritage is a tribute to well-being,
-                                                        authenticity, and inspiration. Our emblem, the peacock,
-                                                        symbolizes grace, wisdom, prosperity, auspiciousness, and
-                                                        longevity—values we infuse into every blend. We believe
-                                                        that true luxury lies in authenticity, and we are
-                                                        dedicated to offering a tea experience crafted with 100%
-                                                        of nature's purest ingredients, free from chemicals,
-                                                        artificial colors, and synthetic flavors, certified by
-                                                        USDA Organic standards.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="text-center mt-8">
-                                            <button id="toggle-button" class="px-6 py-2 rounded-full btn-gold">
-                                                Read More
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Quote Section -->
-                                <div class="fade-up text-center px-4 mt-12">
-                                    <blockquote
-                                        class="text-xl sm:text-2xl font-playfair gold-shine-text italic relative">
-                                        <div class="absolute -left-2 md:-left-4 top-0 text-4xl md:text-5xl opacity-30">"
-                                        </div>
-                                        <p>
-                                            Every sip of Hundreds Heritage is a voyage—one that honors the
-                                            past, embraces the present, and enriches the future.
-                                        </p>
-                                        <div
-                                            class="absolute -right-2 md:-right-4 bottom-0 text-4xl md:text-5xl opacity-30">
-                                            "</div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-
-                <!-- Our Story Section Placeholder -->
-                <div id="our-story-section" class="relative w-full py-16 bg-[#2a231c] overflow-hidden">
-                    <div class="container max-w-4xl mx-auto px-4">
-                        <!-- Header -->
-                        <div class="text-center mb-16 fade-up">
-                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-playfair mb-3">
-                                <span class="gold-shine-text font-semibold">Our Story</span>
-                            </h2>
-                            <p class="text-lg sm:text-xl italic text-tea-text-secondary mx-auto max-w-2xl">
-                                The Wonder of Siamese Wisdom Tea
+                        <!-- Content -->
+                        <div
+                            class="banner-text absolute inset-0 flex flex-col justify-center items-center px-4 z-20 hidden md:flex">
+                            <p
+                                class="uppercase font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+                                <span class="font-semibold brand-heading font uppercase">
+                                    Savor the Essence of<br> Siameses Wisdom
+                                </span>
                             </p>
                         </div>
-
-                        <!-- Main content -->
-                        <div class="space-y-10">
-                            <div class="border-l-2 border-primary/30 pl-6 fade-up">
-                                <h3 class="text-xl sm:text-2xl font-playfair mb-4 gold-shine-text">
-                                    Heritage & Tradition
-                                </h3>
-                                <p class="text-tea-text-secondary text-base leading-relaxed">
-                                    Hundreds Heritage – Where the essence of tradition and the richness of nature
-                                    converge
-                                    to create an unparalleled tea and herbal experience. Our journey begins in the lush,
-                                    high-altitude forests of Northern Thailand, where ancient tea plants have thrived
-                                    for
-                                    centuries, imparting their unique characters to our blends.
-                                </p>
-                            </div>
-
-                            <div class="border-l-2 border-primary/30 pl-6 fade-up delay-2">
-                                <h3 class="text-xl sm:text-2xl font-playfair mb-4 gold-shine-text">
-                                    Quality & Purity
-                                </h3>
-                                <p class="text-tea-text-secondary text-base leading-relaxed">
-                                    We meticulously select the finest organic ingredients, which are locally grown and
-                                    handpicked, ensuring that every cup is a natural infusion of vitality, free from
-                                    chemicals, artificial colors, and scents. Our commitment to quality is evident in
-                                    every
-                                    step of our process, from harvesting to the final blend.
-                                </p>
-                            </div>
-
-                            <div class="border-l-2 border-primary/30 pl-6 fade-up delay-3">
-                                <h3 class="text-xl sm:text-2xl font-playfair mb-4 gold-shine-text">
-                                    More Than a Beverage
-                                </h3>
-                                <p class="text-tea-text-secondary text-base leading-relaxed">
-                                    Hundreds Heritage transcends its role as a mere beverage, becoming a living
-                                    testament to
-                                    the deep cultural roots of tea-drinking from antiquity to the present day. Blending
-                                    wisdom from centuries-old herbal traditions, it emerges as a distinctive tea and
-                                    herbal
-                                    elixir designed for exceptional health benefits.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Philosophy Grid -->
-                        <div class="mt-20 mb-16 fade-up delay-4">
-                            <h2 class="text-2xl sm:text-3xl font-playfair text-center mb-10">
-                                <span class="auto-underline font-semibold gold-shine-text">Our Philosophy</span>
-                            </h2>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                                <!-- Philosophy Cards -->
-                                <div
-                                    class="bg-[#231c15] p-6 rounded-md border-b-2 border-primary/40 hover:-translate-y-1 transition-transform duration-300 fade-up delay-5">
-                                    <h3 class="text-xl font-playfair gold-shine-text mb-3">Rejuvenate</h3>
-                                    <p class="text-tea-text-secondary text-sm">Restoring vitality through nature's
-                                        finest
-                                        ingredients</p>
-                                </div>
-
-                                <div
-                                    class="bg-[#231c15] p-6 rounded-md border-b-2 border-primary/40 hover:-translate-y-1 transition-transform duration-300 fade-up delay-6">
-                                    <h3 class="text-xl font-playfair gold-shine-text mb-3">Nourish</h3>
-                                    <p class="text-tea-text-secondary text-sm">Supporting wellness with every carefully
-                                        crafted cup</p>
-                                </div>
-
-                                <div
-                                    class="bg-[#231c15] p-6 rounded-md border-b-2 border-primary/40 hover:-translate-y-1 transition-transform duration-300 fade-up delay-7">
-                                    <h3 class="text-xl font-playfair gold-shine-text mb-3">Inspire</h3>
-                                    <p class="text-tea-text-secondary text-sm">Connecting you to a rich heritage of
-                                        traditional wisdom</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Quote Section -->
-                        <div class="relative py-10 my-12 border-y border-primary/20 fade-up delay-8">
-                            <div class="absolute text-6xl opacity-10 left-0 top-0 font-serif">"</div>
-                            <blockquote
-                                class="text-xl sm:text-2xl font-playfair text-center mx-auto max-w-2xl gold-shine-text italic">
-                                <p>
-                                    Providing value that goes beyond, it aids in rejuvenating the body, fostering
-                                    wellness,
-                                    and instilling inspiration in every cup, every day.
-                                </p>
-                            </blockquote>
-                            <div class="absolute text-6xl opacity-10 right-0 bottom-0 font-serif">"</div>
-                        </div>
                     </div>
-                </div>
-
-                <!-- Product Preview Section -->
-                <div id="product-preview" class="w-full py-16 radial-gradient-bg overflow-hidden">
-                    <div class="max-w-7xl mx-auto">
-                        <div class="text-center mb-12">
-                            <h2 class="text-3xl md:text-4xl font-stix brand-heading heading-trigger mb-3">
-                                <span class="auto-underline heading-active">Luxury Tea Collection</span>
-                            </h2>
-                            <p class="text-tea-text-secondary max-w-2xl mx-auto px-4">
-                                Ancient wisdom meets modern elegance in our premium organic blends
-                            </p>
-                        </div>
-
-                        <div class="scroller relative z-20 max-w-7xl overflow-hidden">
-                            <ul
-                                class="flex min-w-full shrink-0 gap-6 py-4 w-max flex-nowrap animate-scroll hover:[animation-play-state:paused]">
-                                <!-- Tea Product Card 1 -->
-                                <li
-                                    class="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 glass-card">
-                                    <div class="relative">
-                                        <img src="/images/products/tom-yum.webp" alt="Tom Yum Tea" loading="lazy"
-                                            class="w-full h-64 object-cover rounded-t-2xl" />
-                                        <div class="absolute top-4 left-0 bg-[#FF4D4D] px-4 py-2 text-white font-bold">
-                                            TOM YUM TEA
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#FF4D4D]/80 text-white">
-                                            Thai Herbs from Tom Yum Recipe
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">
-                                            Wellness Blend
-                                        </span>
-                                        <h3 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">
-                                            Tom Yum Tea
-                                        </h3>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness Benefits</span>
-                                            <p class="text-tea-text-secondary text-sm">Detoxifying & Immunity Boost</p>
-                                        </div>
-                                        <div class="mb-6">
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-1">
-                                                <li class="text-tea-text-secondary text-sm">Organic lemongrass</li>
-                                                <li class="text-tea-text-secondary text-sm">Kaffir lime</li>
-                                                <li class="text-tea-text-secondary text-sm">Galangal</li>
-                                                <li class="text-tea-text-secondary text-sm">Lemon</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full">
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Siam Arun Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-2 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/siam_arun.webp" alt="Siam Arun Tea" loading="lazy"
-                                                class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#8B4513] px-4 py-2 text-white font-bold">
-                                            SIAM ARUN
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#8B4513]/80 text-white">
-                                            The Forest Black Tea from the Sunrise
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Premium
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">Siam
-                                            Arun
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            Premium black tea blend from Thai forests, enhanced with revitalizing herbs.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Revitalizing Energy & Heart
-                                                Vitality
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic premium black tea</li>
-                                                <li class="tea-ingredients-list-item">Peppermint</li>
-                                                <li class="tea-ingredients-list-item">Rosemary</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Buddha Bless Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-3 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/buddha_bless.webp" alt="Buddha Bless Tea"
-                                                loading="lazy" class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#4CAF50] px-4 py-2 text-white font-bold">
-                                            BUDDHA BLESS
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#4CAF50]/80 text-white">
-                                            The Healing Serenity of Green Tea
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Premium
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">Buddha
-                                            Bless
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            A serene blend of green tea and jasmine, crafted for focus and metabolism.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Revitalizing Metabolism & Serene
-                                                Focus
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic green tea</li>
-                                                <li class="tea-ingredients-list-item">Jasmine</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Please Me Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-4 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/please_me.webp" alt="Please Me Tea" loading="lazy"
-                                                class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#9C27B0] px-4 py-2 text-white font-bold">
-                                            PLEASE ME
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#9C27B0]/80 text-white">
-                                            Stress Relief and Soothing Sleep
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Wellness
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">Please
-                                            Me
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            A soothing blend designed to promote relaxation and restful sleep.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Relaxation & Restorative Sleep
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic chamomile</li>
-                                                <li class="tea-ingredients-list-item">Rose</li>
-                                                <li class="tea-ingredients-list-item">Chrysanthemum</li>
-                                                <li class="tea-ingredients-list-item">Peppermint</li>
-                                                <li class="tea-ingredients-list-item">Mulberry leaves</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Yellow Sapphire Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-5 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/yellow_sapphire.webp" alt="Yellow Sapphire Tea"
-                                                loading="lazy" class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#FFD700] px-4 py-2 text-white font-bold">
-                                            YELLOW SAPPHIRE
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#FFD700]/80 text-white">
-                                            Sparkle in Wisdom, Savor Prosperity
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Premium
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">Yellow
-                                            Sapphire
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            A golden blend of chrysanthemum and marigold for anti-inflammatory benefits.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Anti-Inflammatory & Circulatory
-                                                Health
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic chrysanthemum</li>
-                                                <li class="tea-ingredients-list-item">Marigold</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Peppermint Bliss Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-6 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/peppermint_bliss.webp" alt="Peppermint Bliss Tea"
-                                                loading="lazy" class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#00BFA5] px-4 py-2 text-white font-bold">
-                                            PEPPERMINT BLISS
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#00BFA5]/80 text-white">
-                                            A Daily Dose of Joy
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Wellness
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">
-                                            Peppermint
-                                            Bliss
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            Pure organic peppermint for refreshment and digestive harmony.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Refreshment & Digestive Harmony
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic peppermint</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Ginger Spice Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-7 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/ginger_spice.webp" alt="Ginger Spice Tea"
-                                                loading="lazy" class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#FF5722] px-4 py-2 text-white font-bold">
-                                            GINGER SPICE
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#FF5722]/80 text-white">
-                                            Immune Support, Naturally Healing
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Wellness
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">Ginger
-                                            Spice
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            A warming blend of ginger and citrus for immune support and digestion.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Immunity Boost & Digestive
-                                                Harmony
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic ginger</li>
-                                                <li class="tea-ingredients-list-item">Lemongrass</li>
-                                                <li class="tea-ingredients-list-item">Lemon</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                <!-- Siam Lady Card -->
-                                <li
-                                    class="glass-card rounded-lg shadow-md flex flex-col overflow-hidden fade-up visible delay-8 transition-all duration-500 hover:-translate-y-1">
-                                    <div class="relative">
-                                        <picture>
-                                            <img src="images/products/siam_lady.webp" alt="Siam Lady Tea" loading="lazy"
-                                                class="w-full h-64 object-cover" />
-                                        </picture>
-                                        <div class="absolute top-4 left-0 bg-[#E91E63] px-4 py-2 text-white font-bold">
-                                            SIAM LADY
-                                        </div>
-                                        <div
-                                            class="absolute bottom-0 left-0 w-full text-center text-sm py-1 bg-[#E91E63]/80 text-white">
-                                            A Symphony of Thai Elegance and Charm
-                                        </div>
-                                    </div>
-                                    <section class="p-6">
-                                        <span
-                                            class="text-[#CFC9C0] font-medium text-[0.8rem] tracking-[0.5em] uppercase">Premium
-                                            Blend</span>
-                                        <h1 class="font-stix gold-accent font-bold text-[1.75rem] my-2 md:my-4">Siam
-                                            Lady
-                                        </h1>
-                                        <p class="text-tea-text-secondary font-medium text-[0.9rem] leading-6 mb-6">
-                                            A floral blend of rose, jasmine, and roselle for antioxidant benefits and
-                                            relaxation.
-                                        </p>
-                                        <div class="mb-4">
-                                            <span class="text-sm font-medium">Wellness</span>
-                                            <p class="text-tea-text-secondary text-sm">Antioxidant & Relaxation</p>
-                                        </div>
-                                        <div>
-                                            <span class="text-sm font-medium">Ingredients</span>
-                                            <ul class="tea-ingredients-list mt-0 pb-4">
-                                                <li class="tea-ingredients-list-item">Organic rose</li>
-                                                <li class="tea-ingredients-list-item">Jasmine</li>
-                                                <li class="tea-ingredients-list-item">Roselle</li>
-                                            </ul>
-                                        </div>
-                                        <button
-                                            class="btn-gold text-[#E8E6E1] font-bold text-[0.9rem] p-4 rounded-lg w-full flex items-center justify-center gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                <path
-                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                            </svg>
-                                            Explore
-                                        </button>
-                                    </section>
-                                </li>
-
-                                </section>
-                        </div>
-
-                        <!-- Feature Card (Wider) -->
-                        <div id="contact-us" class="w-full py-16 bg-secondary">
-                            <section
-                                class="bg-gradient-to-r from-secondary/50 to-secondary rounded-lg shadow-xl max-w-5xl mx-auto overflow-hidden">
-                                <div class="flex flex-col md:flex-row">
-                                    <!-- Left Column - Logo and Info -->
-                                    <div class="p-8 flex flex-col items-center justify-center md:w-2/5 bg-primary/5">
-                                        <!-- Logo -->
-                                        <div class="mb-8 flex justify-center">
-                                            <img src="/images/logo_HH.svg" alt="Hundreds Heritage Logo"
-                                                class="w-48 h-auto gold-shine-svg">
-                                        </div>
-
-                                        <!-- Company Info -->
-                                        <div class="text-center space-y-2">
-                                            <p class="font-semibold text-xl text-tea-text-secondary">Blended & Branded
-                                                by
-                                            </p>
-                                            <p class="text-lg text-tea-text-secondary">Greenrich Worldwide Company
-                                                Limited
-                                            </p>
-                                            <p class="text-tea-text-secondary/80">
-                                                Email: hundredsheritage.th@gmail.com
-                                            </p>
-                                        </div>
-
-                                        <!-- Line QR Code -->
-                                        <div class="mt-8 mb-8">
-                                            <img src="/images/line-qr.png" alt="Line QR Code"
-                                                class="w-36 h-36 rounded-md shadow-sm mx-auto">
-                                        </div>
-
-                                        <!-- Social Icons -->
-                                        <div class="flex space-x-6 mt-4">
-                                            <a href="https://www.instagram.com/hundredsheritage_th" target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                                <i class="ti ti-brand-instagram text-2xl"></i>
-                                            </a>
-                                            <a href="https://www.facebook.com/share/19QRjTRofu" target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                                <i class="ti ti-brand-facebook text-2xl"></i>
-                                            </a>
-                                            <a href="https://lin.ee/Rxte6r9" target="_blank" rel="noopener noreferrer"
-                                                class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                                <i class="ti ti-brand-line text-2xl"></i>
-                                            </a>
-                                            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
-                                                class="text-tea-text-secondary hover:text-primary transition-all transform hover:-translate-y-1">
-                                                <i class="ti ti-brand-tiktok text-2xl"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right Column - Contact Form -->
-                                    <div class="p-8 md:w-3/5">
-                                        <h2 class="text-2xl font-bold text-center mb-4 text-tea-text-secondary">Contact
-                                            Us
-                                        </h2>
-                                        <p class="text-center mb-6 text-tea-text-secondary/80">
-                                            Hundreds Heritage is crafted with 100% organic ingredients.
-                                        </p>
-
-                                        <form id="contactForm" class="space-y-4">
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div class="relative">
-                                                    <input type="text" name="name" placeholder="Name" required
-                                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
-                                                </div>
-                                                <div class="relative">
-                                                    <input type="email" name="email" placeholder="Email" required
-                                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
-                                                </div>
-                                            </div>
-
-                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div class="relative">
-                                                    <input type="tel" name="phone" placeholder="TEL" required
-                                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
-                                                </div>
-                                                <div class="relative">
-                                                    <input type="text" name="subject" placeholder="Subject" required
-                                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
-                                                </div>
-                                            </div>
-
-                                            <div class="relative">
-                                                <textarea name="message" placeholder="Message" required
-                                                    class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent min-h-[120px] text-tea-text-secondary placeholder-tea-text-secondary/50"></textarea>
-                                            </div>
-
-                                            <button type="submit"
-                                                class="btn-gold w-full py-3 rounded-lg transition-all transform hover:-translate-y-1">
-                                                <span class="flex items-center justify-center gap-2">
-                                                    <span>Submit</span>
-                                                    <i class="ti ti-send"></i>
-                                                </span>
-                                            </button>
-                                        </form>
-
-                                        <!-- Success/Error Message -->
-                                        <div id="formStatus" class="mt-4 p-3 rounded-md text-center hidden"></div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-
-
-    <!-- Footer -->
-    <footer class="bg-secondary py-8">
-        <div class="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-tea-text-secondary">© 2025 Hundreds Heritage Tea. All rights
-                        reserved.</p>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-tea-text-secondary hover:text-primary">Privacy
-                        Policy</a>
-                    <a href="#" class="text-tea-text-secondary hover:text-primary">Terms of
-                        Service</a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Scripts -->
-    <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Hero Section Mobile -->
+    <section class="h-auto relative overflow-hidden md:hidden">
+
+        <div class="relative z-10">
+            <!-- Hero Content -->
+
+            <!-- Title styled like in the image -->
+            <div class="text-center py-4 my-2 px-4">
+                <h2 class="text-md font-medium uppercase tracking-wider">SAVOR THE ESSENCE OF SIAMESE WISDOM</h2>
+            </div>
+
+            <!-- ลบ container และ padding ที่ครอบรูปภาพ -->
+            <div class="relative w-full h-full">
+                <img src="/images/hero-image.webp" alt="Hundreds Heritage Tea Field" class="object-cover w-full h-full">
+            </div>
+        </div>
+        <!-- Mobile version -->
+        <div class="flex md:hidden justify-center items-center mb-4">
+            <div class="relative w-auto h-auto max-w-3xl">
+                <img src="/images/certificates.png" alt="Organic and Non-GMO Certificates"
+                    class="object-cover w-full h-[8rem]" />
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Hero Section Desktop Only (ไม่แสดงใน Mobile) -->
+    <section class="container mx-auto hidden lg:flex items-center justify-evenly h-full pt-12 pb-8 mb-16 px-4">
+        <!-- Left Content -->
+        <div class="w-1/2 text-white">
+            <h1 class="text-5xl font-semibold leading-tight gold-shine-text capitalize mb-6 max-w-xl">
+                Embrace the Timeless Essence of Hundreds Heritage Thai Tea
+            </h1>
+            <p class="text-xl max-w-xl mb-8">
+                Experience the soothing aroma and rich flavors of Hundreds Heritage Thai tea, crafted from
+                generations of tradition. Let every sip transport you to the heart of Thailand, where tea culture
+                meets tranquility.
+            </p>
+
+            <!-- Tea Circles -->
+            <div class="certificate-badge">
+                <div class="flex justify-start items-center mb-4">
+                    <div class="relative w-full h-full max-w-xs">
+                        <img src="/images/certificates.png" alt="Organic and Non-GMO Certificates"
+                            class="object-cover w-full h-auto" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content - Tea Image -->
+        <div class="w-1/3">
+            <div class="rounded-tr-3xl overflow-hidden float-animation">
+                <img src="/images/tea-cup.webp" class="w-full h-auto" alt="Tea cup" />
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Heritage Section with Modern Layout -->
+    <section id="about-section" class="max-w-5xl mx-auto lg:mt-16 py-16 px-4">
+        <!-- Section Title -->
+        <div class="mb-12 text-center">
+            <h2 class="inline-block text-3xl sm:text-4xl md:text-5xl font-semibold relative">
+                <span class="gold-shine-text">Background</span>
+                <span
+                    class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-yellow-600"></span>
+            </h2>
+        </div>
+
+        <!-- Desktop Layout (hidden on mobile) -->
+        <div class="hidden md:block">
+            <!-- Main Slogan Section -->
+            <div class="grid grid-cols-2 gap-8 mb-16" id="main-slogan-desktop">
+                <!-- Left Column (Image) -->
+                <div class="flex items-center justify-center">
+                    <div class="rounded-xl overflow-hidden shadow-md w-full max-w-md h-auto">
+                        <img src="images/background-1.webp" alt="Thai Tea Traditions"
+                            class="w-full h-auto object-contain">
+                    </div>
+                </div>
+
+                <!-- Right Column (Text Content) -->
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl md:text-3xl text-yellow-600 mb-4">The Real Luxury is Authenticity</h3>
+                    <p class="text-lg leading-relaxed">
+                        Hundreds Heritage is inspired by a passion to share Thailand's rich cultural heritage of tea
+                        drinking—a tradition deeply rooted in centuries of wisdom and natural abundance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Thai Wisdom Section -->
+            <div class="grid grid-cols-2 gap-8 mb-16" id="thai-wisdom-desktop">
+                <!-- Left Column (Text Content) -->
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl md:text-3xl text-yellow-600 mb-4">Beyond Tea Leaves</h3>
+                    <p class="text-lg leading-relaxed">
+                        Thai people have long embraced nature's gifts, crafting herbal infusions from local plants and
+                        aromatic ingredients, transforming tea into a cultural experience that nourishes both body and
+                        soul.
+                    </p>
+                </div>
+
+                <!-- Right Column (Image) -->
+                <div class="flex items-center justify-center">
+                    <div class="rounded-xl overflow-hidden shadow-md w-full max-w-md h-auto">
+                        <img src="images/tea-ingredients.webp" alt="Tea and Herbal Ingredients"
+                            class="w-full h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Mobile Layout (hidden on desktop) -->
+        <div id="about-section" class="block container mx-auto md:hidden">
+            <!-- Main Slogan Section -->
+            <div class="max-w-3xl mx-auto mb-16 text-center animate-slide-up" id="main-slogan-mobile">
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl text-yellow-600 mb-4 text-justify">The Real Luxury is Authenticity</h3>
+                    <p class="text-lg leading-relaxed text-justify">
+                        Hundreds Heritage is inspired by a passion to share Thailand's rich cultural heritage of tea
+                        drinking—a tradition deeply rooted in centuries of wisdom and natural abundance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Thai Wisdom Section -->
+            <div class="max-w-3xl mx-auto mb-16 text-center animate-slide-up" id="thai-wisdom-mobile">
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl text-yellow-600 mb-4 text-justify">Beyond Tea Leaves</h3>
+                    <p class="text-lg leading-relaxed text-justify">
+                        Thai people have long embraced nature's gifts, crafting herbal infusions from local plants and
+                        aromatic ingredients, transforming tea into a cultural experience that nourishes both body and
+                        soul.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Royal Initiative Section -->
+        <div class="container mx-auto mx-auto mb-16 text-center animate-slide-up" id="royal-initiative">
+            <h3 class="text-2xl md:text-3xl text-yellow-600 mb-4  md:text-center">Royal Initiative</h3>
+            <p class="text-lg leading-relaxed text-justify md:text-center">
+                Recognizing the potential of tea as a sustainable livelihood, His Majesty King Bhumibol
+                Adulyadej
+                (Rama IX)
+                encouraged highland communities to cultivate tea, transforming lives and preserving nature.
+            </p>
+        </div>
+
+        <!-- Community Support Section -->
+        <div class="container mx-auto mx-auto mb-16 text-center animate-slide-up" id="community-support">
+            <h3 class="text-2xl md:text-3xl text-yellow-600 mb-4 md:text-center">Supporting Highland
+                Communities</h3>
+            <p class="text-lg leading-relaxed text-justify md:text-center">
+                Hundreds Heritage is dedicated to uplifting highland communities and organic farmers, ensuring
+                their
+                timeless
+                knowledge is shared with the world.
+            </p>
+        </div>
+        </div>
+
+        <!-- Value Cards in Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="value-cards">
+            <!-- Authenticity Card -->
+            <div class="text-center p-6 rounded-lg bg-white bg-opacity-50 shadow-md">
+                <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center">
+                    <span class="text-2xl">🍃</span>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Authenticity</h4>
+                <p class="text-sm text-gray-600">We commit to 100% natural ingredients, ensuring purity in every
+                    cup.</p>
+            </div>
+
+            <!-- Sustainability Card -->
+            <div class="text-center p-6 rounded-lg bg-white bg-opacity-50 shadow-md">
+                <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center">
+                    <span class="text-2xl">🌱</span>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Sustainability</h4>
+                <p class="text-sm text-gray-600">Our tea is cultivated with care, preserving ecosystems for
+                    future
+                    generations.</p>
+            </div>
+
+            <!-- Community Card -->
+            <div class="text-center p-6 rounded-lg bg-white bg-opacity-50 shadow-md">
+                <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center">
+                    <span class="text-2xl">👨‍🌾</span>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Community</h4>
+                <p class="text-sm text-gray-600">We empower local farmers through fair trade practices and
+                    cultural
+                    preservation.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Our Story Section -->
+    <section id="our-story-section" class="relative w-full py-16 bg-[#2a231c] overflow-hidden">
+        <div class="container max-w-4xl mx-auto px-4">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl mb-3">
+                    <span class="gold-shine-text font-semibold">Our Story</span>
+                </h2>
+                <p class="text-lg sm:text-xl italic text-tea-text-secondary mx-auto max-w-2xl">
+                    The Wonder of Siamese Wisdom Tea
+                </p>
+            </div>
+
+            <!-- Main content -->
+            <div class="space-y-10 relative z-10"> <!-- เพิ่ม relative และ z-10 -->
+                <div class="border-l-2 border-primary/30 pl-6">
+                    <h3 class="text-xl sm:text-2xl mb-4 gold-shine-text">
+                        Heritage & Tradition
+                    </h3>
+                    <p class="text-tea-text-secondary text-base leading-relaxed">
+                        Hundreds Heritage – Where the essence of tradition and the richness of nature
+                        converge
+                        to create an unparalleled tea and herbal experience. Our journey begins in the
+                        lush,
+                        high-altitude forests of Northern Thailand, where ancient tea plants have
+                        thrived
+                        for
+                        centuries, imparting their unique characters to our blends.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-primary/30 pl-6">
+                    <h3 class="text-xl sm:text-2xl mb-4 gold-shine-text">
+                        Quality & Purity
+                    </h3>
+                    <p class="text-tea-text-secondary text-base leading-relaxed">
+                        We meticulously select the finest organic ingredients, which are locally grown
+                        and
+                        handpicked, ensuring that every cup is a natural infusion of vitality, free from
+                        chemicals, artificial colors, and scents. Our commitment to quality is evident
+                        in
+                        every
+                        step of our process, from harvesting to the final blend.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-primary/30 pl-6">
+                    <h3 class="text-xl sm:text-2xl mb-4 gold-shine-text">
+                        More Than a Beverage
+                    </h3>
+                    <p class="text-tea-text-secondary text-base leading-relaxed">
+                        Hundreds Heritage transcends its role as a mere beverage, becoming a living
+                        testament to
+                        the deep cultural roots of tea-drinking from antiquity to the present day.
+                        Blending
+                        wisdom from centuries-old herbal traditions, it emerges as a distinctive tea and
+                        herbal
+                        elixir designed for exceptional health benefits.
+                    </p>
+                </div>
+            </div>
+
+
+
+            <!-- Quote Section -->
+            <div class="relative py-10 my-12 border-y border-primary/20">
+                <div class="absolute text-6xl opacity-10 left-0 top-0 font-serif">"</div>
+                <blockquote class="text-xl sm:text-2xl  text-center mx-auto max-w-2xl gold-shine-text italic">
+                    <p>
+                        Providing value that goes beyond, it aids in rejuvenating the body, fostering
+                        wellness,
+                        and instilling inspiration in every cup, every day.
+                    </p>
+                </blockquote>
+                <div class="absolute text-6xl opacity-10 right-0 bottom-0 font-serif">"</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Preview Section -->
+    <div id="product-preview" class="w-full py-16 min-h-screen overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bookmanoldstyle brand-heading mb-3">
+                    <span class="auto-underline heading-active gold-shine-text">Our Collection</span>
+                </h2>
+                <p class="text-tea-text-secondary max-w-2xl mx-auto px-4">
+                    Ancient wisdom meets modern elegance in our premium organic blends
+                </p>
+            </div>
+
+            <!-- Mobile Product Grid (Show only on mobile) -->
+            <div class="grid grid-cols-2 gap-3 md:hidden">
+                <div class="product-card-mobile">
+                    <img src="/images/products/tom_yum_tea.webp" alt="Tom Yum Tea"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Tom Yum Tea</h3>
+                        <p class="text-xs text-tea-text-secondary/80">Thai Herbs from Tom Yum Recipe</p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/siam_arun.webp" alt="Siam Arun"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Siam Arun</h3>
+                        <p class="text-xs text-tea-text-secondary/80">The Forest Black Tea from the Sunrise
+                        </p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/buddha_bless.webp" alt="Buddha Bless"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Buddha Bless</h3>
+                        <p class="text-xs text-tea-text-secondary/80">The Healing Serenity of Green Tea</p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/please_me.webp" alt="Please Me"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Please Me</h3>
+                        <p class="text-xs text-tea-text-secondary/80">Stress Relief and Soothing Sleep</p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/yellow_sapphire.webp" alt="Yellow Sapphire"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Yellow Sapphire</h3>
+                        <p class="text-xs text-tea-text-secondary/80">Sparkle in Wisdom, Savor Prosperity
+                        </p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/peppermint_bliss.webp" alt="Peppermint Bliss"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Peppermint Bliss</h3>
+                        <p class="text-xs text-tea-text-secondary/80">A Daily Dose of Joy</p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/ginger_spice.webp" alt="Ginger Spice"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Ginger Spice</h3>
+                        <p class="text-xs text-tea-text-secondary/80">Immune Support, Naturally Healing</p>
+                    </div>
+                </div>
+
+                <div class="product-card-mobile">
+                    <img src="/images/products/siam_lady.webp" alt="Siam Lady"
+                        class="w-full aspect-square object-cover rounded-lg">
+                    <div class="p-3">
+                        <h3 class="font-bold text-sm text-tea-text-secondary">Siam Lady</h3>
+                        <p class="text-xs text-tea-text-secondary/80">A Symphony of Thai Elegance and Charm
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Product Grid (Show only on desktop) -->
+            <div class="hidden md:block">
+                <div class="container mx-auto py-10">
+                    <div id="productGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
+                    <!-- Desktop product cards will be inserted here by JavaScript -->
+
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="contact-us" class="w-full py-16 bg-secondary">
+                <section class="rounded-lg shadow-xl mx-auto max-w-5xl">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Left Column - Logo and Info -->
+                        <div class="p-6 md:p-8 flex flex-col items-center justify-center w-full md:w-2/5 bg-primary/5">
+                            <!-- Logo -->
+                            <div class="mb-6 md:mb-8 flex justify-center w-32 md:w-48">
+                                <img src="/images/logo_HH.svg" alt="Hundreds Heritage"
+                                    class="w-full h-auto gold-shine-svg">
+                            </div>
+
+                            <!-- Company Info -->
+                            <div class="text-center space-y-2">
+                                <p class="font-semibold text-lg md:text-xl">Blended & Branded by</p>
+                                <p class="text-base md:text-lg">Greenrich Worldwide Company Limited</p>
+                                <p class="text-sm md:text-base">Email: hundredsheritage.th@gmail.com</p>
+                                <p class="text-sm md:text-base">www.hundreds-heritage.com</p>
+                            </div>
+
+                            <!-- Order Here Section -->
+                            <div class="relative space-x-12 my-8">
+                                <div class="text-center">
+                                    <p class="my-2 text-tea-text-secondary">ORDER HERE</p>
+                                    <img src="/images/line-qr.png" alt="Order QR Code" class="w-28 h-28">
+                                </div>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="flex justify-center space-x-4 md:space-x-6 mt-6">
+                                <a href="https://www.instagram.com/hundredsheritage_th" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-tea-text-secondary hover:text-primary transition-all hover:-translate-y-1">
+                                    <i class="ti ti-brand-instagram text-xl md:text-2xl"></i>
+                                </a>
+                                <a href="https://www.facebook.com/share/19QRjTRofu" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-tea-text-secondary hover:text-primary transition-all hover:-translate-y-1">
+                                    <i class="ti ti-brand-facebook text-xl md:text-2xl"></i>
+                                </a>
+                                <a href="https://lin.ee/Rxte6r9" target="_blank" rel="noopener noreferrer"
+                                    class="text-tea-text-secondary hover:text-primary transition-all hover:-translate-y-1">
+                                    <i class="ti ti-brand-line text-xl md:text-2xl"></i>
+                                </a>
+                                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
+                                    class="text-tea-text-secondary hover:text-primary transition-all hover:-translate-y-1">
+                                    <i class="ti ti-brand-tiktok text-xl md:text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Column - Contact Form -->
+                        <div class="p-6 md:p-8 w-full md:w-3/5">
+                            <h2 class="text-xl md:text-2xl font-bold text-center mb-4 brand-heading">Contact Us</h2>
+                            <p class="text-center mb-6 text-sm md:text-base">
+                                Hundreds Heritage is crafted with 100% organic ingredients, honoring nature's purest
+                                offerings,
+                                supporting local communities, and savoring the timeless wisdom of Thailand"
+                            </p>
+
+                            <p class="text-center mb-6 font-bold text-lg">Thank you for savoring our blend.</p>
+
+                            <form id="contactForm" class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="text" name="name" placeholder="Name" required
+                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
+                                    <input type="email" name="email" placeholder="Email" required
+                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="tel" name="phone" placeholder="TEL" required
+                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
+                                    <input type="text" name="subject" placeholder="Subject" required
+                                        class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent text-tea-text-secondary placeholder-tea-text-secondary/50">
+                                </div>
+
+                                <textarea name="message" placeholder="Message" required
+                                    class="w-full px-4 py-2 bg-background/50 border border-primary/20 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-transparent min-h-[120px] text-tea-text-secondary placeholder-tea-text-secondary/50"></textarea>
+
+                                <button type="submit"
+                                    class="w-full py-3 rounded-lg hover:-translate-y-1 bg-[#D4AF37] hover:bg-[#BF9B30] text-white font-medium">
+                                    <span class="flex items-center justify-center gap-2">
+                                        <span>Submit</span>
+                                        <i class="ti ti-send"></i>
+                                    </span>
+                                </button>
+                            </form>
+
+                            <div id="formStatus" class="mt-4 p-3 rounded-md text-center hidden"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer - Full Width -->
+            <footer class="bg-secondary py-8 w-full absolute bottom-0 left-0">
+                <div class="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="mb-4 md:mb-0">
+                            <p class="text-tea-text-secondary">© 2025 Hundreds Heritage Tea. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-tea-text-secondary hover:text-primary">Privacy Policy</a>
+                            <a href="#" class="text-tea-text-secondary hover:text-primary">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Scripts -->
+            <script src="main.js"></script>
+            <script src="motion.js"></script>
+            <script src="products.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/motion@10.15.5/dist/motion.min.js"></script>
 </body>
 
 </html>
